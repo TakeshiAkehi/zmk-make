@@ -1,4 +1,4 @@
-This repository is a simple script to build zmkfirmware locally.
+This repository contains a simple script to build zmkfirmware locally.
 
 # Requirements
 1. Docker is installed
