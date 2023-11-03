@@ -1,0 +1,31 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_D3KB_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "d3kb"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+
+if SHIELD_D3KB_LEFT || SHIELD_D3KB_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
+
+
+if ZMK_BACKLIGHT
+
+config PWM
+    default y
+
+config LED_PWM
+    default y
+
+endif # ZMK_BACKLIGHT

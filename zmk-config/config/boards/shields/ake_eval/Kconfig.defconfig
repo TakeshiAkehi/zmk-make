@@ -1,0 +1,10 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_AKE_EVAL
+
+config ZMK_KEYBOARD_NAME
+    default "ake_eval"
+
+endif
+

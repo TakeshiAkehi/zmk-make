@@ -1,0 +1,8 @@
+file_format: "1"
+id: ake_eval
+name: AKE_EVAL
+type: shield
+url: https://none
+requires: [seeed_xiao]
+features:
+  - keys
