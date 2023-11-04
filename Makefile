@@ -8,9 +8,10 @@ CONTAINER_NAME:=zmk-$(TAG)
 IMAGE_NAME:=$(REPO):$(TAG)
 
 PWD := $(shell pwd)
-ZMK_WORK_DIR = ${PWD}/zmk-config
+ZMK_WORK_DIR = ${PWD}
 ZMK_CONFIG_DIR = ${ZMK_WORK_DIR}/config
 ZMK_BUILD_DIR = ${PWD}/build
+
 run:
 	docker run -d --rm \
 	--volume ${PWD}:${PWD}:rw \
@@ -57,9 +58,6 @@ west_export:
 
 west_reset:
 	make exec CMD="rm .west -rf"
-
-west_deep_reset:
-	make west_reset
 	make exec CMD="rm zmk -rf"
 	make exec CMD="rm zephyr -rf"
 	make exec CMD="rm modules -rf"
@@ -72,8 +70,8 @@ zmk_setup:
 zmk_build:
 	make exec CMD="west zephyr-export"
 	make exec CMD="west build -p -s zmk/app -b ${BOARD} -d ${ZMK_BUILD_DIR}/${SHIELD} -- -DSHIELD=${SHIELD} -DZMK_CONFIG=${ZMK_CONFIG_DIR}"
+	make exec CMD="chmod 777 -R ${ZMK_BUILD_DIR}"
 	make exec CMD="cp ${ZMK_BUILD_DIR}/${SHIELD}/zephyr/zmk.uf2 ${ZMK_BUILD_DIR}/${SHIELD}.uf2"
-	make exec CMD="chmod 777 ${ZMK_BUILD_DIR}/${SHIELD}.uf2"
 
 d3kb:
 	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="d3kb_left"

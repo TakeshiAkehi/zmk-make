@@ -1,4 +1,5 @@
-This repository contains a simple script to build zmkfirmware locally.
+This repository contains a simple script to build zmk firmware locally.
+
 
 # Requirements
 1. Docker is installed
@@ -19,7 +20,7 @@ make stop
 
 `make run` : This command runs the zmk container in the background.
 
-`make zmk_setup` This command performs initial setup. It needs to be executed only the first time. Folders such as `.west`, `zmk` etc... are placed in the zmk-config folder.
+`make zmk_setup` This command performs initial setup. It needs to be executed only the first time. Folders such as `.west`, `zmk` etc... are placed in the repository.
 
 `make d3kb` This command actually builds the firmware in the build folder. The keyboard being built is my private keyboard, so your goal is to create a command to replace it.
 
@@ -27,7 +28,7 @@ make stop
 
 
 # How to set up your keyboard.
-Create  `zmk-config/config/board/shields/<your keyboard name>` folder and place the `.keymap` file etc.
+Create  `config/board/shields/<your keyboard name>` folder and place the `.keymap` file etc.
 
 Add a new build command to the end of the Makefile.
 ```
@@ -54,7 +55,6 @@ CONTAINER ID   IMAGE                         COMMAND               CREATED      
 
 `make attach` : This command attaches to the running container's bash.
 
-`make zmk_update` : T
+`make zmk_update` : This command updates the zmkfirmware source based on the contents of `config/west.yml`. Please refer to the [Beta Testing]( https://zmk.dev/docs/features/beta-testing) for further information.
 
-Change ZMK_CONFIG_DIR in Makefile to use your own `zmk-config` repository.
 
