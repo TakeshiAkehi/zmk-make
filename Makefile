@@ -76,3 +76,6 @@ zmk_build:
 d3kb:
 	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="d3kb_left"
 	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="d3kb_right"
+
+zzkb:
+	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="zzkb"

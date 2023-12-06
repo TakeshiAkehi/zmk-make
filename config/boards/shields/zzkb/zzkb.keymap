@@ -1,0 +1,169 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#define LDEF 0
+#define LSYM 1
+#define LNAV 2
+#define LFUN 3
+#define LADJ 4
+
+&mt {
+    tapping-term-ms = <175>;
+    flavor = "tap-preferred";
+};
+
+&lt {
+    tapping-term-ms = <175>;
+    flavor = "balanced";
+};
+
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE>;
+};
+
+/ {
+    combos{
+        compatible = "zmk,combos";
+        timeout-ms = <200>;
+
+        // left 
+        // T * * 2 3 4 * *  | ** ** 00 01 02 ** **
+        // M 0 1 2 3 4 5 *  | 06 07 08 09 10 11 **
+        // B * 1 2 3 4 5 6  | ** 18 19 20 21 22 23
+        combo_left_234T {
+            key-positions = <0 1 2>;
+            bindings = <&sl LADJ>;
+        };
+        combo_left_23T {
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+        combo_left_23M {
+            key-positions = <8 9>;
+            bindings = <&mo LFUN>;
+        };
+        combo_left_34M {
+            key-positions = <9 10>;
+            bindings = <&mo LFUN>;
+        };
+        combo_left_24M {
+            key-positions = <8 10>;
+            bindings = <&mo LFUN>;
+        };
+        combo_left_45M {
+            key-positions = <10 11>;
+            bindings = <&kp PRCNT>;
+        };
+        combo_left_4MB {
+            key-positions = <10 21>;
+            bindings = <&kp PIPE>;
+        };
+        combo_left_45B {
+            key-positions = <21 22>;
+            bindings = <&caps_word>;
+        };
+        combo_left_56B {
+            key-positions = <22 23>;
+            bindings = <&kp LGUI>;
+        };
+
+        // right 
+        // T * * 2 3 4 * * | ** ** 03 04 05 ** **
+        // M * 1 2 3 4 5 6 | ** 12 13 14 15 16 17
+        // B 0 1 2 3 4 5 * | 24 25 26 27 28 29 **
+        combo_right_2TM {
+            key-positions = <3 13>;
+            bindings = <&kp COMMA>;
+        };
+        combo_right_3TM {
+            key-positions = <4 14>;
+            bindings = <&kp DOT>;
+        };
+        combo_right_4TM {
+            key-positions = <5 15>;
+            bindings = <&kp SEMI>;
+        };
+        combo_right_12M {
+            key-positions = <12 13>;
+            bindings = <&kp CARET>;
+        };
+        combo_right_23M {
+            key-positions = <13 14>;
+            bindings = <&kp BSPC>;
+        };
+        combo_right_34M {
+            key-positions = <14 15>;
+            bindings = <&kp RET>;
+        };
+        combo_right_01B {
+            key-positions = <24 25>;
+            bindings = <&caps_word>;
+        };
+        combo_right_23B {
+            key-positions = <26 27>;
+            bindings = <&kp DEL>;
+        };
+        combo_right_34B {
+            key-positions = <27 28>;
+            bindings = <&kp RET>;
+        };
+    };
+
+    behaviors {
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                               &kp W       &kp U  &kp F                                                          &kp L &kp R &kp Y      
+            &kp Q  &mt LCTRL E &kp I       &kp A  &kp O  &kp MINUS                                        &kp K  &kp T &kp N &kp S &mt RCTRL H  &kp P 
+                   &mt LSHFT Z &mt LALT X  &kp C  &kp V  &lt LSYM TAB &mt LSHFT SPACE      &lt LNAV SPACE &kp G  &kp D &kp M &kp J &kp B
+                                                                                     &kp A
+            >;
+        };
+
+        symbol_layer {
+            bindings = <
+                      &kp AT         &kp HASH    &kp DLLR                                                      &kp AMPS   &kp ASTRK &kp UNDER    
+            &kp TILDE &mt LCTRL EXCL &kp LBKT    &kp LPAR   &kp COLON &kp LBRC                        &kp RBRC &kp SLASH  &kp RPAR  &kp RBKT     &mt RCTRL EQUAL &kp PLUS 
+                      &kp GRAVE      &mt LALT LT &kp MINUS  &kp GT    &trans   &kp SPACE   &kp SPACE  &kp N0   &kp QMARK  &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
+                                                                                      &kp B
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+                                  &kp N4      &kp N5 &kp N6                                              &kp PG_DN     &kp UP        &kp PG_UP  
+            &kp LGUI &mt LCTRL N0 &kp N1      &kp N2 &kp N3  &none                           &kp K_CMENU &kp LEFT      &kp DOWN      &kp RIGHT  &kp RALT &kp LGUI
+                     &mt LSHFT N0 &mt LALT N7 &kp N8 &kp N9  &kp TAB  &kp SPACE   &trans     &none       &kp LC(PG_UP) &kp LC(PG_DN) &kp HOME   &kp END
+                                                                                       &kp C
+            >;
+        };
+
+        fun_layer {
+            bindings = <
+                                   &kp F11      &kp F12  &kp LS(F5)                                       &kp N7 &kp N8 &kp N9 
+            &none    &mt LCTRL F1  &kp F2       &kp F3   &kp F4     &kp F5                     &kp DOT    &kp N4 &kp N5 &kp N6 &kp N0 &kp MINUS
+                     &mt LSHFT F6  &mt LALT F7  &kp F8   &kp F9     &kp F10  &none  &kp SPACE  &kp COMMA  &kp N1 &kp N2 &kp N3 &kp N0
+                                                                                &kp D
+            >;
+        };
+
+
+        adj_layer {
+            bindings = <
+                                  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2                                             &none     &none     &none    
+            &none   &out OUT_BLE  &bt BT_SEL 3 &bt BT_SEL 4 &none        &bt BT_CLR                      &kp CAPS    &none     &none     &none    &out OUT_BLE &none
+                    &out OUT_USB  &none        &none        &none        &bt BT_CLR  &none &none         &kp PSCRN   &none     &none     &none    &out OUT_USB
+                                                                                                  &kp E
+            >;
+        };
+        
+    };
+};
+
