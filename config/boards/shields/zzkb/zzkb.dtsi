@@ -19,7 +19,7 @@
         >;
     };
 
-    kscan0: kscan_0 {
+    kscan0: kscan_0 {aa
     compatible = "zmk,kscan-gpio-matrix";
     label = "KSCAN";
     };

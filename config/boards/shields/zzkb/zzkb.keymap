@@ -120,18 +120,18 @@
 
         default_layer {
             bindings = <
-                               &kp W       &kp U  &kp F                                                          &kp L &kp R &kp Y      
-            &kp Q  &mt LCTRL E &kp I       &kp A  &kp O  &kp MINUS                                        &kp K  &kp T &kp N &kp S &mt RCTRL H  &kp P 
-                   &mt LSHFT Z &mt LALT X  &kp C  &kp V  &lt LSYM TAB &mt LSHFT SPACE      &lt LNAV SPACE &kp G  &kp D &kp M &kp J &kp B
+                                    &kp W       &kp U  &kp F                                                          &kp L &kp R &kp Y      
+            &mt LGUI Q  &mt LCTRL E &kp I       &kp A  &kp O  &kp MINUS                                        &kp K  &kp T &kp N &kp S &mt RCTRL H  &kp P 
+                        &mt LSHFT Z &mt LALT X  &kp C  &kp V  &lt LSYM TAB &mt LSHFT SPACE      &lt LNAV SPACE &kp G  &kp D &kp M &kp J &kp B
                                                                                      &kp A
             >;
         };
 
         symbol_layer {
             bindings = <
-                      &kp AT         &kp HASH    &kp DLLR                                                      &kp AMPS   &kp ASTRK &kp UNDER    
-            &kp TILDE &mt LCTRL EXCL &kp LBKT    &kp LPAR   &kp COLON &kp LBRC                        &kp RBRC &kp SLASH  &kp RPAR  &kp RBKT     &mt RCTRL EQUAL &kp PLUS 
-                      &kp GRAVE      &mt LALT LT &kp MINUS  &kp GT    &trans   &kp SPACE   &kp SPACE  &kp N0   &kp QMARK  &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
+                            &kp AT         &kp HASH    &kp DLLR                                                      &kp AMPS   &kp ASTRK &kp UNDER    
+            &mt LGUI TILDE  &mt LCTRL EXCL &kp LBKT    &kp LPAR   &kp COLON &kp LBRC                        &kp RBRC &kp SLASH  &kp RPAR  &kp RBKT     &mt RCTRL EQUAL &kp PLUS 
+                            &kp GRAVE      &mt LALT LT &kp MINUS  &kp GT    &trans   &kp SPACE   &kp SPACE  &kp N0   &kp QMARK  &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
                                                                                       &kp B
             >;
         };
