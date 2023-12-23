@@ -4,9 +4,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define LDEF 0
-#define LSYM 1
-#define LNAV 2
-#define LFUN 3
+#define LFUN 1
+#define LSYM 2
+#define LNAV 3
 #define LADJ 4
 
 &mt {
@@ -37,8 +37,8 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-        combo_left_23B {
-            key-positions = <19 20>;
+        combo_left_23M {
+            key-positions = <8 9>;
             bindings = <&mo LFUN>;
         };
         combo_left_45M {
@@ -124,33 +124,32 @@
             >;
         };
         
+        fun_layer {
+            bindings = <
+                                   &kp F11      &kp F12  &kp LS(F5)                                                        &kp N7 &kp N8 &kp N9 
+            &kp F1   &mt LCTRL F2  &kp F3       &kp F4   &kp F5     &kp F6                                       &kp DOT   &kp N4 &kp N5 &kp N6 &kp N0 &kp MINUS
+                     &mt LSHFT F7  &mt LALT F8  &kp F9   &kp F10    &lt LSYM TAB  &kp SPACE       &lt LNAV SPACE &kp COMMA &kp N1 &kp N2 &kp N3 &kp N0
+                                                                                            &none
+            >;
+        };
+
         symbol_layer {
             bindings = <
-                            &kp AT         &kp HASH    &kp DLLR                                                          &kp AMPS   &kp ASTRK &kp UNDER    
-            &mt LGUI TILDE  &mt LCTRL EXCL &kp LBKT    &kp LPAR   &kp COLON &kp LBRC                            &kp RBRC &kp SLASH  &kp RPAR  &kp RBKT     &mt RCTRL EQUAL &kp PLUS 
-                            &kp GRAVE      &mt LALT LT &kp MINUS  &kp GT    &trans   &kp SPACE       &kp SPACE  &kp N0   &kp QMARK  &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
-                                                                                               &none
+                            &kp AT         &kp HASH &kp DLLR                                                                &kp AMPS   &kp ASTRK &kp UNDER    
+            &mt LGUI TILDE  &mt LCTRL EXCL &kp LBKT &kp LPAR   &kp COLON &kp LBRC                                  &kp RBRC &kp SLASH  &kp RPAR  &kp RBKT     &mt RCTRL EQUAL &kp PLUS 
+                            &kp GRAVE      &kp LT   &kp MINUS  &kp GT    &none     &kp SPACE       &lt LNAV SPACE  &kp N0   &kp QMARK  &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
+                                                                                             &none
             >;
         };
 
         nav_layer {
             bindings = <
-                                  &kp N4      &kp N5 &kp N6                                              &kp PG_DN     &kp UP        &kp PG_UP  
-            &kp LGUI &mt LCTRL N0 &kp N1      &kp N2 &kp N3  &none                           &kp K_CMENU &kp LEFT      &kp DOWN      &kp RIGHT  &kp RALT &kp LGUI
-                     &mt LSHFT N0 &mt LALT N7 &kp N8 &kp N9  &kp TAB  &kp SPACE   &trans     &none       &kp LC(PG_UP) &kp LC(PG_DN) &kp HOME   &kp END
-                                                                                       &none
+                                  &kp N4      &kp N5 &kp N6                                           &kp PG_DN     &kp UP        &kp PG_UP  
+            &kp LGUI &mt LCTRL N0 &kp N1      &kp N2 &kp N3 &none                         &kp K_CMENU &kp LEFT      &kp DOWN      &kp RIGHT  &kp RALT &kp LGUI
+                     &mt LSHFT N0 &mt LALT N7 &kp N8 &kp N9 &kp TAB &kp SPACE &trans      &none       &kp LC(PG_UP) &kp LC(PG_DN) &kp HOME   &kp END
+                                                                                    &none
             >;
         };
-
-        fun_layer {
-            bindings = <
-                                   &kp F11      &kp F12  &kp LS(F5)                                           &kp N7 &kp N8 &kp N9 
-            &kp F1   &mt LCTRL F2  &kp F3       &kp F4   &kp F5     &kp F6                         &kp DOT    &kp N4 &kp N5 &kp N6 &kp N0 &kp MINUS
-                     &mt LSHFT F7  &mt LALT F8  &kp F9   &kp F10    &kp TAB  &kp SPACE  &kp SPACE  &kp COMMA  &kp N1 &kp N2 &kp N3 &kp N0
-                                                                                     &none
-            >;
-        };
-
 
         adj_layer {
             bindings = <

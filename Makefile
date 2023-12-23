@@ -79,3 +79,7 @@ d3kb:
 
 zzkb:
 	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="zzkb"
+
+all:
+	make d3kb
+	make zzkb
