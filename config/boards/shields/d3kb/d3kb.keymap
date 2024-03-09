@@ -126,8 +126,8 @@
             bindings = <
                 &kp Q       &kp W       &kp U    &kp F         &none              &none               &kp L &kp R     &kp Y      &kp P 
                 &mt LCTRL E &kp I       &kp A    &kp O         &kp MINUS          &kp K               &kp T &kp N     &kp S      &mt RCTRL H 
-                &mt LSHFT Z &mt LALT X  &kp C    &kp V         &lt LSYM TAB       &kp G               &kp D &kp M     &kp J      &kp B
-                                        &none    &none         &mt LSHFT SPACE    &lt LNAV SPACE      &none &none 
+                &mt LSHFT Z &mt LALT X  &kp C    &kp V         &none              &kp G               &kp D &kp M     &kp J      &kp B
+                                        &none    &lt LSYM TAB  &mt LSHFT SPACE    &lt LNAV SPACE      &none &none 
             >;
         };
 
@@ -135,7 +135,7 @@
             bindings = <
                 &kp TILDE       &kp AT        &kp HASH      &kp DLLR  &none            &none          &kp AMPS       &kp ASTRK &kp UNDER    &kp PLUS 
                 &mt LCTRL EXCL  &kp LBKT      &kp LPAR      &kp COLON &kp LBRC         &kp RBRC       &kp SLASH      &kp RPAR  &kp RBKT     &mt RCTRL EQUAL 
-                &kp GRAVE       &mt LALT LT   &kp MINUS     &kp GT    &trans           &none          &kp QMARK      &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
+                &kp GRAVE       &mt LALT LT   &kp MINUS     &kp GT    &none            &none          &kp QMARK      &kp DQT   &mt RALT SQT &mt RSHFT BSLH 
                                               &none         &none     &kp SPACE        &kp SPACE      &none          &none
             >;
         };
@@ -144,8 +144,8 @@
             bindings = <
                 &kp LGUI     &kp N4      &kp N5    &kp N6     &none             &none       &kp PG_DN     &kp UP        &kp PG_UP  &kp LGUI
                 &mt LCTRL N0 &kp N1      &kp N2    &kp N3     &none             &kp K_CMENU &kp LEFT      &kp DOWN      &kp RIGHT  &kp RALT
-                &mt LSHFT N0 &mt LALT N7 &kp N8    &kp N9     &kp TAB           &none       &kp LC(PG_UP) &kp LC(PG_DN) &kp HOME   &kp END
-                                         &none     &none      &kp SPACE         &trans      &none         &none 
+                &mt LSHFT N0 &mt LALT N7 &kp N8    &kp N9     &none              &none       &kp LC(PG_UP) &kp LC(PG_DN) &kp HOME   &kp END
+                                         &none     &kp TAB    &kp SPACE         &trans      &none         &none 
             >;
         };
 

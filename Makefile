@@ -1,6 +1,6 @@
 ##
 REPO:=zmkfirmware/zmk-dev-arm
-TAG:=3.2
+TAG:=3.5
 # REPO:=zmkfirmware/zmk-build-arm
 # TAG:=stable
 
@@ -11,6 +11,9 @@ PWD := $(shell pwd)
 ZMK_WORK_DIR = ${PWD}
 ZMK_CONFIG_DIR = ${ZMK_WORK_DIR}/config
 ZMK_BUILD_DIR = ${PWD}/build
+
+pull:
+	docker pull ${REPO}:${TAG}
 
 run:
 	docker run -d --rm \
@@ -72,6 +75,9 @@ zmk_build:
 	make exec CMD="west build -p -s zmk/app -b ${BOARD} -d ${ZMK_BUILD_DIR}/${SHIELD} -- -DSHIELD=${SHIELD} -DZMK_CONFIG=${ZMK_CONFIG_DIR}"
 	make exec CMD="chmod 777 -R ${ZMK_BUILD_DIR}"
 	make exec CMD="cp ${ZMK_BUILD_DIR}/${SHIELD}/zephyr/zmk.uf2 ${ZMK_BUILD_DIR}/${SHIELD}.uf2"
+
+testkb:
+	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="ake_eval"
 
 d3kb:
 	make zmk_build BOARD="seeeduino_xiao_ble" SHIELD="d3kb_left"

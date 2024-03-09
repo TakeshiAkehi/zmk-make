@@ -4,7 +4,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#include "mouse.dtsi"
+#define LDEF 0
+#define LUPR 1
+#define LLOW 2
 
 / {
     keymap {
@@ -12,9 +14,21 @@
 
         default_layer {
             bindings = <
-                &mmv MOVE_UP     &mwh SCROLL_UP
-                &mkp MB1     &out OUT_USB
+                &none           &none
+                &lt LUPR A    &out OUT_USB
+                &kp C &kp D &kp E
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN >;
         };
+
+        upper_layer {
+            bindings = <
+                &none     &none
+                &trans    &kp B
+                &kp F &kp G &kp H
+            >;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT >;
+        };
+
     };
 };
